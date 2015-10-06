@@ -77,7 +77,7 @@ Steps involved in creating a trading partner agreement are documented [here][2].
 
 As part of the output, the connector returns the AS2 payload as well as the AS2-specific metadata.
 
-The Trigger is fired when an AS2 Payload is as a POST to https://{Host URL}/decode.  You can find the Host URL in the API App settings.  You may also need to change the Access Level of the API App in Application Settings to Public (authenticated or anonymous).
+The Trigger is fired when an AS2 Payload is as a POST to https://{Host URL}/decode.  You can find the Host URL in the API App settings. You may also need to change the Access Level of the API App in Application Settings to Public (authenticated or anonymous). The required fields to fire the trigger using the API are AS2-From, AS2-To, and MessageID for plain text payload. When the AS2 payload requires to be encrypted and signed, content-type must match 'application/pkcs7-mime; smime-type=enveloped-data; name=\"smime.p7m\"', Content-Transfer-Encoding: binary (base64 not supported), and the payload has to be signed and encrypted, learn more about signing and enveloping messages here: https://msdn.microsoft.com/en-us/library/ms180961. 
 
 ## Use the Connector as an Action
 1. After your trigger (or choose 'run this logic manually'), add the AS2 connector you created from the right pane:  
